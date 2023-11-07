@@ -1,31 +1,40 @@
 import {
   NativeStackNavigationProp,
   createNativeStackNavigator,
-} from "@react-navigation/native-stack";
+} from '@react-navigation/native-stack'
 
-import PreLogin from "../screens/PreLogin";
-import Login from "../screens/Login";
+import PreLogin from '../screens/PreLogin'
 
-const Stack = createNativeStackNavigator();
+import LoginEfetivo from '../screens/LoginEfetivo'
+import LoginUsuário from '../screens/LoginUsuario'
+import LoginVisitante from '../screens/LoginVisitante'
+
+import HomeUsuario from '../screens/HomeUsuario'
+
+const Stack = createNativeStackNavigator()
 
 type StackNavigation = {
-  login: undefined;
-  loginConfirmation: undefined;
-  home: undefined;
-  createAccount: undefined;
-  userCreationSuccess: undefined;
-};
+  pre_login: undefined
 
-export type StackTypes = NativeStackNavigationProp<StackNavigation>;
+  login_efetivo: undefined
+  login_usuario: undefined
+  login_visitante: undefined
+
+  home_usuario: undefined
+}
+
+export type StackTypes = NativeStackNavigationProp<StackNavigation>
 
 export default () => {
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false }}
-      initialRouteName="login"
-    >
-      <Stack.Screen name={"pre_login"} component={PreLogin} />
-      <Stack.Screen name={"login"} component={Login} />
+      initialRouteName="pre_login">
+      <Stack.Screen name={'pre_login'} component={PreLogin} />
+      <Stack.Screen name={'login_efetivo'} component={LoginEfetivo} />
+      <Stack.Screen name={'login_usuario'} component={LoginUsuário} />
+      <Stack.Screen name={'login_visitante'} component={LoginVisitante} />
+      <Stack.Screen name={'home_usuario'} component={HomeUsuario} />
     </Stack.Navigator>
-  );
-};
+  )
+}
