@@ -8,15 +8,15 @@ export const Container = styled.View`
   bottom: 0;
   flex-direction: row;
   align-items: center;
-  padding-left: 12px;
-  padding-right: 12px;
+  padding-left: 26px;
+  padding-right: 26px;
   padding-bottom: 4px;
   justify-content: space-between;
   background-color: rgba(23, 72, 88, 1);
 `
 
 export const Name = styled.Text`
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 400;
   color: rgb(255, 255, 255);
 `

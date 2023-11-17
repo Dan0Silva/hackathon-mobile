@@ -1,15 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 
 import * as S from './styles'
 import TextInput from '../../components/TextInput'
 import Button from '../../components/Button'
 
+import { AuthContext } from '../../context/Auth'
 import { useNavigation } from '@react-navigation/native'
 import { StackTypes } from '../../routes/Login.routes'
+import Toast from 'react-native-toast-message'
 
-const DefaultUser = {
-  login: '',
-  password: '',
+interface UserType {
+  usuario: string
+  senha: string
+}
+
+const DefaultUser: UserType = {
+  usuario: '',
+  senha: '',
 }
 
 export default () => {
@@ -17,7 +24,32 @@ export default () => {
   const Logo = require('../../assets/imagens/logo.png')
 
   const [user, setUser] = useState(DefaultUser)
+  const [showPassoword, setShowPassword] = useState(true)
   const navigation = useNavigation<StackTypes>()
+
+  const { signIn, auth } = useContext(AuthContext)
+
+  const validateUser = () => {
+    if (user.usuario == '' || user.senha == '') {
+      Toast.show({
+        type: 'error',
+        text1: 'Login incompleto',
+        text2: 'Favor verificar os campos',
+      })
+    } else {
+      signIn(user.usuario, user.senha)
+    }
+  }
+
+  const setPass = () => {
+    setShowPassword(!showPassoword)
+  }
+
+  useEffect(() => {
+    if (auth) {
+      navigation.navigate('home_usuario')
+    }
+  }, [auth])
 
   return (
     <S.Container source={backgroundImage}>
@@ -36,14 +68,17 @@ export default () => {
             <TextInput
               placeholder="Login"
               title={'Usuário'}
-              value={user.login}
-              onChangeText={(text) => setUser({ ...user, login: text })}
+              value={user.usuario}
+              onChangeText={(text) => setUser({ ...user, usuario: text })}
             />
             <TextInput
               placeholder="Senha"
               title={'Senha'}
-              value={user.password}
-              onChangeText={(text) => setUser({ ...user, password: text })}
+              icon={'eye'}
+              iconAction={setPass}
+              secureTextEntry={showPassoword}
+              value={user.senha}
+              onChangeText={(text) => setUser({ ...user, senha: text })}
             />
 
             <S.MainButtonOptions>
@@ -51,10 +86,7 @@ export default () => {
                 title={'ENTRAR'}
                 color={'rgb(9, 127, 226)'}
                 titleStyle={{ fontSize: 18 }}
-                onPress={() => {
-                  // enviar os dados
-                  navigation.navigate('home_usuario')
-                }}
+                onPress={validateUser}
               />
             </S.MainButtonOptions>
           </S.OptionsContainer>

@@ -10,6 +10,7 @@ import LoginUsuário from '../screens/LoginUsuario'
 import LoginVisitante from '../screens/LoginVisitante'
 
 import HomeUsuario from '../screens/HomeUsuario'
+import HomeVisitante from '../screens/HomeVisitante'
 
 const Stack = createNativeStackNavigator()
 
@@ -21,6 +22,7 @@ type StackNavigation = {
   login_visitante: undefined
 
   home_usuario: undefined
+  home_visitante: undefined
 }
 
 export type StackTypes = NativeStackNavigationProp<StackNavigation>
@@ -35,6 +37,7 @@ export default () => {
       <Stack.Screen name={'login_usuario'} component={LoginUsuário} />
       <Stack.Screen name={'login_visitante'} component={LoginVisitante} />
       <Stack.Screen name={'home_usuario'} component={HomeUsuario} />
+      <Stack.Screen name={'home_visitante'} component={HomeVisitante} />
     </Stack.Navigator>
   )
 }

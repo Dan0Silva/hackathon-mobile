@@ -55,7 +55,7 @@ export default () => {
                 titleStyle={{ fontSize: 18 }}
                 onPress={() => {
                   // enviar os dados
-                  navigation.navigate('home_usuario')
+                  navigation.navigate('home_visitante')
                 }}
               />
             </S.MainButtonOptions>
