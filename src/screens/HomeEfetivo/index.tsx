@@ -16,9 +16,7 @@ export default () => {
 
       <S.CardContainer>
         <S.OptionsTitleContainer>
-          <S.OptionsTitle>
-            SISTEMA DE CONTROLE DE ACESSO VISITANTE
-          </S.OptionsTitle>
+          <S.OptionsTitle>SISTEMA DE CONTROLE DE ACESSO EFETIVO</S.OptionsTitle>
         </S.OptionsTitleContainer>
 
         <S.IntContainer>

@@ -6,7 +6,7 @@ import Button from '../../components/Button'
 
 import { AuthContext } from '../../context/Auth'
 import { useNavigation } from '@react-navigation/native'
-import { StackTypes } from '../../routes/Login.routes'
+// import { StackTypes } from '../../routes/Login.routes'
 import Toast from 'react-native-toast-message'
 
 interface UserType {
@@ -15,8 +15,8 @@ interface UserType {
 }
 
 const DefaultUser: UserType = {
-  usuario: '',
-  senha: '',
+  usuario: '2244',
+  senha: 'pamonha#22',
 }
 
 export default () => {
@@ -25,9 +25,8 @@ export default () => {
 
   const [user, setUser] = useState(DefaultUser)
   const [showPassoword, setShowPassword] = useState(true)
-  const navigation = useNavigation<StackTypes>()
 
-  const { signIn, auth } = useContext(AuthContext)
+  const { signInUsuario } = useContext(AuthContext)
 
   const validateUser = () => {
     if (user.usuario == '' || user.senha == '') {
@@ -37,19 +36,13 @@ export default () => {
         text2: 'Favor verificar os campos',
       })
     } else {
-      signIn(user.usuario, user.senha)
+      signInUsuario(user.usuario, user.senha)
     }
   }
 
   const setPass = () => {
     setShowPassword(!showPassoword)
   }
-
-  useEffect(() => {
-    if (auth) {
-      navigation.navigate('home_usuario')
-    }
-  }, [auth])
 
   return (
     <S.Container source={backgroundImage}>

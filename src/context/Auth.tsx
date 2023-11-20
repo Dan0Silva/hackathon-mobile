@@ -1,9 +1,15 @@
 import { PropsWithChildren, createContext, useState } from 'react'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import apiBackend from '../services/backend'
 
 interface IAuth {
   user: any
-  signIn: (usuario: string, senha: string) => void
+  visiter: any
+  staff: any
+  signInUsuario: (usuario: string, senha: string) => void
+  signInVisitante: (email: string, senha: string) => void
+  signInEfetivo: (email: string, senha: string) => void
+  signOut: Function
   auth: boolean
   error: string
 }
@@ -12,18 +18,37 @@ export const AuthContext = createContext<IAuth>({} as IAuth)
 
 export default ({ children }: PropsWithChildren) => {
   const [user, setUser] = useState({})
+  const [visiter, setVisiter] = useState({})
+  const [staff, setStaff] = useState({})
   const [error, setError] = useState<string>('')
   const [auth, setAuth] = useState(false)
 
-  async function signIn(usuario: string, senha: string) {
+  async function saveJwt(token: string) {
     try {
-      const response = await apiBackend.post('/usuarioLogin', {
-        usuario,
+      await AsyncStorage.setItem('jwt_token/sca-codafofo', token)
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
+  async function removeJwt(async_key: string) {
+    try {
+      await AsyncStorage.removeItem(async_key)
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
+  async function signInVisitante(email: string, senha: string) {
+    try {
+      const response = await apiBackend.post('/visitanteLogin', {
+        email,
         senha,
       })
-      console.log(response.data.entity)
+
       if (response.status == 200) {
-        setUser(response.data.entity)
+        setVisiter(response.data.entity)
+        saveJwt(response.data.jwtToken)
         setAuth(true)
       }
     } catch (e: any) {
@@ -33,8 +58,63 @@ export default ({ children }: PropsWithChildren) => {
     }
   }
 
+  async function signInEfetivo(email: string, senha: string) {
+    try {
+      const response = await apiBackend.post('/efetivoLogin', {
+        email,
+        senha,
+      })
+
+      if (response.status == 200) {
+        console.log(response.data.entity)
+        saveJwt(response.data.jwtToken)
+        setAuth(true)
+      }
+    } catch (e: any) {
+      if (e.response) {
+        setError(e.response.data.mensagem)
+      }
+    }
+  }
+
+  async function signInUsuario(usuario: string, senha: string) {
+    try {
+      const response = await apiBackend.post('/usuarioLogin', {
+        usuario,
+        senha,
+      })
+      if (response.status == 200) {
+        setUser(response.data.entity)
+        console.log(response.data.entity)
+        saveJwt(response.data.jwtToken)
+        setAuth(true)
+      }
+    } catch (e: any) {
+      if (e.response) {
+        setError(e.response.data.mensagem)
+      }
+    }
+  }
+
+  function signOut() {
+    setUser({})
+    setAuth(false)
+    removeJwt('jwt_token/sca-codafofo')
+  }
+
   return (
-    <AuthContext.Provider value={{ user, error, signIn, auth }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        visiter,
+        staff,
+        error,
+        signInUsuario,
+        signInVisitante,
+        signInEfetivo,
+        signOut,
+        auth,
+      }}>
       {children}
     </AuthContext.Provider>
   )

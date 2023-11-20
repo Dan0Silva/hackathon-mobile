@@ -21,4 +21,6 @@ export const Name = styled.Text`
   color: rgb(255, 255, 255);
 `
 
+export const ButtonContainer = styled.TouchableOpacity``
+
 export const ExitIcon = styled(FontAwesome5)``

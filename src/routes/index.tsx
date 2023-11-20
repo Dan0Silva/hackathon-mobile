@@ -1,11 +1,10 @@
-import { NavigationContainer } from "@react-navigation/native";
-
-import LoginRoutes from "./Login.routes";
+import { NavigationContainer } from '@react-navigation/native'
+import { Authentication } from '../context/Authentication'
 
 export default () => {
   return (
     <NavigationContainer>
-      <LoginRoutes />
+      <Authentication />
     </NavigationContainer>
-  );
-};
+  )
+}
