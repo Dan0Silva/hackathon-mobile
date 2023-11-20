@@ -66,6 +66,7 @@ export default ({ children }: PropsWithChildren) => {
       })
 
       if (response.status == 200) {
+        setStaff(response.data.entity)
         console.log(response.data.entity)
         saveJwt(response.data.jwtToken)
         setAuth(true)

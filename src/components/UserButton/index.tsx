@@ -13,7 +13,7 @@ export default (props: Props) => {
 
   return (
     <S.Container {...restProps}>
-      <S.Icon name={icon} size={42} color={'white'} />
+      <S.Icon name={icon} size={38} color={'white'} />
       <S.Title>{text}</S.Title>
     </S.Container>
   )

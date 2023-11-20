@@ -19,7 +19,7 @@ type StackNavigation = {
   login_visitante: undefined
 }
 
-export type StackTypes = NativeStackNavigationProp<StackNavigation>
+export type StackTypesUAuth = NativeStackNavigationProp<StackNavigation>
 
 export default () => {
   return (

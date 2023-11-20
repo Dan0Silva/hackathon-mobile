@@ -9,13 +9,13 @@ export const Container = styled.View`
 `
 
 export const Title = styled.Text`
-  font-size: 28px;
+  font-size: 24px;
   padding: 8px;
   font-weight: bold;
   text-align: center;
   color: rgb(23, 72, 88);
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 `
 
 export const OptionsContainer = styled.View`
@@ -61,7 +61,7 @@ export const NumberCard = styled.View`
 export const IconNumber = styled(FontAwesome5)``
 
 export const TextNumber = styled.Text`
-  font-size: 40px;
+  font-size: 38px;
   font-weight: 400;
   color: rgb(255, 255, 255);
 `

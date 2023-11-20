@@ -4,8 +4,18 @@ import { FontAwesome5 } from '@expo/vector-icons'
 export const Container = styled.View`
   flex: 1;
   height: 100%;
-  align-items: center;
+
   background-color: #d9d9d9;
+`
+
+export const ContainerScrollView = styled.ScrollView`
+  margin-bottom: 60px;
+`
+
+export const ContainerMenu = styled.View`
+  width: 100%;
+  height: 100%;
+  align-items: center;
 `
 
 export const IconContainer = styled.View`
