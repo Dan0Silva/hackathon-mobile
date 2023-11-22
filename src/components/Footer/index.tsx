@@ -3,13 +3,7 @@ import { AuthContext } from '../../context/Auth'
 
 import * as S from './styles'
 
-interface Props {
-  name: string
-}
-
-export default (props: Props) => {
-  const { name, ...restProps } = props
-
+export default () => {
   const { signOut } = useContext(AuthContext)
 
   return (

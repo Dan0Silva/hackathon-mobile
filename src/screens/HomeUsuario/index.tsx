@@ -21,13 +21,14 @@ export default () => {
       <S.OptionsContainer>
         <S.OptionsRows>
           <UserButton
-            onPress={() => {navigation.navigate('home_efetivo')}}
+            onPress={() => {
+              navigation.navigate('qrcode_scanner')
+            }}
             icon={'user-alt'}
             text={'VALIDAÇÃO QR CODE'}
             style={{ backgroundColor: 'rgba(88, 175, 203, 1)' }}
           />
           <UserButton
-            onPress={() => {navigation.navigate('home_visitante')}}
             icon={'address-card'}
             text={'CRACHÁS VISITANTES'}
             style={{ backgroundColor: 'rgba(7, 140, 182, 1)' }}
@@ -60,7 +61,7 @@ export default () => {
         </S.NumberCard>
       </S.NumberContainer>
 
-      <Footer name={'test'} />
+      <Footer />
     </S.Container>
   )
 }

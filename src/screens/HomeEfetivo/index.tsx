@@ -58,7 +58,7 @@ export default () => {
         </S.ContainerMenu>
       </S.ContainerScrollView>
 
-      <Footer name={'test'} />
+      <Footer />
     </S.Container>
   )
 }
