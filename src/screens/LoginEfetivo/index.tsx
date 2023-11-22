@@ -8,8 +8,8 @@ import Toast from 'react-native-toast-message'
 import { AuthContext } from '../../context/Auth'
 
 const DefaultUser = {
-  email: '',
-  senha: '',
+  email: 'efetivo@mail.com',
+  senha: 'teste#123',
 }
 
 export default () => {

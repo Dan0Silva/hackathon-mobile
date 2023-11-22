@@ -15,7 +15,7 @@ interface UserType {
 
 const DefaultUser: UserType = {
   email: 'teste@gmail.com',
-  senha: 'askdfhaskdfhkj',
+  senha: 'teste#123',
 }
 
 export default () => {

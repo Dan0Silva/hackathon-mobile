@@ -12,7 +12,7 @@ export default () => {
     console.log(user)
     return <HomeUsuario />
   }
-  if (staff.flag) {
+  if (staff.ativo_efetivo) {
     console.log(staff)
     return <HomeEfetivo />
   }

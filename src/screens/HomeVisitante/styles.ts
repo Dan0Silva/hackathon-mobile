@@ -99,7 +99,7 @@ export const ContainerQRCode = styled.View`
 export const Data = styled.Text`
   width: 100%;
   text-align: center;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   margin-bottom: 20px;
 `

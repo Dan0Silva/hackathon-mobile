@@ -14,7 +14,6 @@ export default (props: Props) => {
 
   return (
     <S.Container>
-      <S.Name>{name}</S.Name>
       <S.ButtonContainer
         onPress={() => {
           signOut()

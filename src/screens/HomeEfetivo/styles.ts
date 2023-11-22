@@ -91,15 +91,7 @@ export const OptionName = styled.Text`
 
 export const ContainerQRCode = styled.View`
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   align-items: center;
   justify-content: center;
-`
-
-export const Data = styled.Text`
-  width: 100%;
-  text-align: center;
-  font-size: 12px;
-  font-weight: 600;
-  margin-bottom: 20px;
 `

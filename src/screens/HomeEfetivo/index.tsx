@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
+
+import { AuthContext } from '../../context/Auth'
 
 import Header from '../../components/Header'
 import * as S from './styles'
@@ -6,6 +8,8 @@ import Footer from '../../components/Footer'
 import QRCode from 'react-qr-code'
 
 export default () => {
+  const { staff } = useContext(AuthContext)
+
   return (
     <S.Container>
       <Header />
@@ -22,7 +26,11 @@ export default () => {
             </S.OptionsTitleContainer>
 
             <S.IntContainer>
-              <S.Name>USER NAME</S.Name>
+              <S.Name>
+                {staff.nome_completo
+                  ? staff.nome_completo.toUpperCase()
+                  : 'USER NAME'}
+              </S.Name>
               <S.CodeUser>CPF OU SARAM</S.CodeUser>
 
               <S.OptionsContainer>
@@ -35,13 +43,16 @@ export default () => {
                   <S.Icon name={'key'} size={18} color={'#000'} />
                   <S.OptionName>NÍVEL DE ACESSO</S.OptionName>
                 </S.Option>
+
+                <S.Option>
+                  <S.Icon name={'font-awesome-flag'} size={18} color={'#000'} />
+                  <S.OptionName>POSTO</S.OptionName>
+                </S.Option>
               </S.OptionsContainer>
 
               <S.ContainerQRCode>
-                <QRCode value="tests" size={200} />
+                <QRCode value={staff.qrcode_efetivo.toString()} size={200} />
               </S.ContainerQRCode>
-
-              <S.Data>DATA DE VENCIMENTO</S.Data>
             </S.IntContainer>
           </S.CardContainer>
         </S.ContainerMenu>

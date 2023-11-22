@@ -2,6 +2,8 @@ import { PropsWithChildren, createContext, useState } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import apiBackend from '../services/backend'
 
+import Toast from 'react-native-toast-message'
+
 interface IAuth {
   user: any
   visiter: any
@@ -15,6 +17,14 @@ interface IAuth {
 }
 
 export const AuthContext = createContext<IAuth>({} as IAuth)
+
+const showSuccessLoginToast = () => {
+  Toast.show({
+    type: 'success',
+    text1: 'Sucesso!',
+    text2: 'Login realizado com sucesso',
+  })
+}
 
 export default ({ children }: PropsWithChildren) => {
   const [user, setUser] = useState({})
@@ -49,6 +59,7 @@ export default ({ children }: PropsWithChildren) => {
       if (response.status == 200) {
         setVisiter(response.data.entity)
         saveJwt(response.data.jwtToken)
+        showSuccessLoginToast()
         setAuth(true)
       }
     } catch (e: any) {
@@ -67,8 +78,8 @@ export default ({ children }: PropsWithChildren) => {
 
       if (response.status == 200) {
         setStaff(response.data.entity)
-        console.log(response.data.entity)
         saveJwt(response.data.jwtToken)
+        showSuccessLoginToast()
         setAuth(true)
       }
     } catch (e: any) {
@@ -86,8 +97,8 @@ export default ({ children }: PropsWithChildren) => {
       })
       if (response.status == 200) {
         setUser(response.data.entity)
-        console.log(response.data.entity)
         saveJwt(response.data.jwtToken)
+        showSuccessLoginToast()
         setAuth(true)
       }
     } catch (e: any) {

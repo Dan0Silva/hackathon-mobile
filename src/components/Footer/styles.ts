@@ -11,14 +11,8 @@ export const Container = styled.View`
   padding-left: 26px;
   padding-right: 26px;
   padding-bottom: 4px;
-  justify-content: space-between;
+  justify-content: flex-end;
   background-color: rgba(23, 72, 88, 1);
-`
-
-export const Name = styled.Text`
-  font-size: 20px;
-  font-weight: 400;
-  color: rgb(255, 255, 255);
 `
 
 export const ButtonContainer = styled.TouchableOpacity``
