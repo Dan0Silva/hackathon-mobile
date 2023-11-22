@@ -6,7 +6,12 @@ import UserButton from '../../components/UserButton'
 import * as S from './styles'
 import Footer from '../../components/Footer'
 
+import { useNavigation } from '@react-navigation/native'
+import { StackTypesAuth } from '../../routes/MainRoutes/Main.routes'
+
 export default () => {
+  const navigation = useNavigation<StackTypesAuth>()
+
   return (
     <S.Container>
       <Header />
@@ -16,11 +21,13 @@ export default () => {
       <S.OptionsContainer>
         <S.OptionsRows>
           <UserButton
+            onPress={() => {navigation.navigate('home_efetivo')}}
             icon={'user-alt'}
             text={'VALIDAÇÃO QR CODE'}
             style={{ backgroundColor: 'rgba(88, 175, 203, 1)' }}
           />
           <UserButton
+            onPress={() => {navigation.navigate('home_visitante')}}
             icon={'address-card'}
             text={'CRACHÁS VISITANTES'}
             style={{ backgroundColor: 'rgba(7, 140, 182, 1)' }}
@@ -44,11 +51,11 @@ export default () => {
 
       <S.NumberContainer>
         <S.NumberCard style={{ backgroundColor: 'rgb(59, 88, 146)' }}>
-          <S.IconNumber name={'running'} size={42} color={'white'} />
+          <S.IconNumber name={'running'} size={38} color={'white'} />
           <S.TextNumber>120</S.TextNumber>
         </S.NumberCard>
         <S.NumberCard style={{ backgroundColor: 'rgb(0, 40, 118)' }}>
-          <S.IconNumber name={'car'} size={42} color={'white'} />
+          <S.IconNumber name={'car'} size={38} color={'white'} />
           <S.TextNumber>120</S.TextNumber>
         </S.NumberCard>
       </S.NumberContainer>

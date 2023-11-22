@@ -2,8 +2,8 @@ import styled from 'styled-components/native'
 import { FontAwesome5 } from '@expo/vector-icons'
 
 export const Container = styled.TouchableOpacity`
-  width: 170px;
-  height: 170px;
+  width: 160px;
+  height: 160px;
   border-radius: 20px;
   justify-content: center;
   padding: 15px;
@@ -13,7 +13,7 @@ export const Container = styled.TouchableOpacity`
 export const Icon = styled(FontAwesome5)``
 
 export const Title = styled.Text`
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 500;
   color: rgb(255, 255, 255);
 `

@@ -3,14 +3,11 @@ import {
   createNativeStackNavigator,
 } from '@react-navigation/native-stack'
 
-import PreLogin from '../screens/PreLogin'
+import PreLogin from '../../screens/PreLogin'
 
-import LoginEfetivo from '../screens/LoginEfetivo'
-import LoginUsuário from '../screens/LoginUsuario'
-import LoginVisitante from '../screens/LoginVisitante'
-
-import HomeUsuario from '../screens/HomeUsuario'
-import HomeVisitante from '../screens/HomeVisitante'
+import LoginEfetivo from '../../screens/LoginEfetivo'
+import LoginUsuário from '../../screens/LoginUsuario'
+import LoginVisitante from '../../screens/LoginVisitante'
 
 const Stack = createNativeStackNavigator()
 
@@ -20,12 +17,9 @@ type StackNavigation = {
   login_efetivo: undefined
   login_usuario: undefined
   login_visitante: undefined
-
-  home_usuario: undefined
-  home_visitante: undefined
 }
 
-export type StackTypes = NativeStackNavigationProp<StackNavigation>
+export type StackTypesUAuth = NativeStackNavigationProp<StackNavigation>
 
 export default () => {
   return (
@@ -36,8 +30,6 @@ export default () => {
       <Stack.Screen name={'login_efetivo'} component={LoginEfetivo} />
       <Stack.Screen name={'login_usuario'} component={LoginUsuário} />
       <Stack.Screen name={'login_visitante'} component={LoginVisitante} />
-      <Stack.Screen name={'home_usuario'} component={HomeUsuario} />
-      <Stack.Screen name={'home_visitante'} component={HomeVisitante} />
     </Stack.Navigator>
   )
 }
