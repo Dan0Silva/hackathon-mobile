@@ -37,12 +37,13 @@ export default () => {
     <S.Container>
       <Header />
 
-      <S.Title>Escaneie o QRCode</S.Title>
-
-      <BarCodeScanner
-        style={StyleSheet.absoluteFillObject}
-        onBarCodeScanned={scanData ? undefined : handleBarCodeScanner}
-      />
+      <S.ContainerScan>
+        <BarCodeScanner
+          style={StyleSheet.absoluteFill}
+          barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}
+          onBarCodeScanned={scanData ? undefined : handleBarCodeScanner}
+        />
+      </S.ContainerScan>
 
       <Footer />
     </S.Container>
