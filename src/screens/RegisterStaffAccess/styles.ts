@@ -19,8 +19,8 @@ export const ContainerMenu = styled.View`
 `
 
 export const IconContainer = styled.View`
-  height: 140px;
-  width: 140px;
+  height: 120px;
+  width: 120px;
   border-radius: 10px;
   align-items: center;
   justify-content: center;
@@ -35,7 +35,7 @@ export const Icon = styled(FontAwesome5)``
 export const CardContainer = styled.View`
   width: 310px;
   height: max-content;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   border-radius: 10px;
   overflow: hidden;
 `
@@ -44,6 +44,12 @@ export const IntContainer = styled.View`
   background-color: rgb(255, 255, 255);
   padding-left: 20px;
   padding-right: 20px;
+`
+
+export const Line = styled.View`
+  background-color: #d2d2d2;
+  width: 100%;
+  height: 2px;
 `
 
 export const OptionsTitleContainer = styled.View`
@@ -73,18 +79,22 @@ export const CodeUser = styled.Text`
   margin-bottom: 14px;
 `
 
-export const OptionsContainer = styled.View`
-  margin-bottom: 10px;
+export const TitleItem = styled.Text`
+  font-size: 18px;
+  font-weight: 800;
+  margin-top: 14px;
+  margin-bottom: 2px;
 `
 
-export const Option = styled.View`
+export const ValueItem = styled.Text`
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 14px;
+`
+
+export const ContainerButton = styled.View`
+  align-items: center;
   flex-direction: row;
-  margin-left: 4px;
-  margin-bottom: 20px;
-`
-
-export const OptionName = styled.Text`
-  font-size: 16px;
-  font-weight: 700;
-  margin-left: 12px;
+  width: 100%;
+  height: 100px;
 `

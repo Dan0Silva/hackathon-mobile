@@ -5,7 +5,6 @@ import TextInput from '../../components/TextInput'
 import Button from '../../components/Button'
 
 import { AuthContext } from '../../context/Auth'
-import { useNavigation } from '@react-navigation/native'
 import Toast from 'react-native-toast-message'
 
 interface UserType {

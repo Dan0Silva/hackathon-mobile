@@ -3,7 +3,7 @@ import React from 'react'
 import Button from '../../components/Button'
 import { useNavigation } from '@react-navigation/native'
 
-import { StackTypes } from '../../routes/Login.routes'
+import { StackTypesUAuth } from '../../routes/UAuth/UAuth.routes'
 
 import * as S from './styles'
 
@@ -11,7 +11,7 @@ export default () => {
   const backgroundImage = require('../../assets/imagens/background.png')
   const Logo = require('../../assets/imagens/logo.png')
 
-  const navigation = useNavigation<StackTypes>()
+  const navigation = useNavigation<StackTypesUAuth>()
 
   return (
     <S.Container source={backgroundImage}>

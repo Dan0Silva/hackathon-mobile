@@ -8,7 +8,7 @@ import * as S from './styles'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Toast from 'react-native-toast-message'
-import { ActivityIndicator } from 'react-native'
+import { ActivityIndicator, Button } from 'react-native'
 
 export default () => {
   const [hasPermission, setHasPermission] = useState(false)
@@ -23,7 +23,7 @@ export default () => {
       setScanData(data)
       setLoading(false)
     }, 5000)
-    navigator.navigate('access_registration')
+    navigator.navigate('access_visiter') // alterar rota
   }
 
   useEffect(() => {
@@ -56,6 +56,13 @@ export default () => {
           onBarCodeScanned={scanData ? undefined : handleBarCodeScanner}
         />
       </S.ContainerScan>
+
+      <Button
+        title="test"
+        onPress={() => {
+          navigator.navigate('access_staff')
+        }}
+      />
 
       {loading ? (
         <S.indicatorContainer>

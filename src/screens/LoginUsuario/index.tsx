@@ -5,8 +5,6 @@ import TextInput from '../../components/TextInput'
 import Button from '../../components/Button'
 
 import { AuthContext } from '../../context/Auth'
-import { useNavigation } from '@react-navigation/native'
-// import { StackTypes } from '../../routes/Login.routes'
 import Toast from 'react-native-toast-message'
 
 interface UserType {
@@ -15,8 +13,8 @@ interface UserType {
 }
 
 const DefaultUser: UserType = {
-  usuario: '2244',
-  senha: 'pamonha#22',
+  usuario: '123456',
+  senha: 'admin',
 }
 
 export default () => {
