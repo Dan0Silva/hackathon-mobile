@@ -61,7 +61,7 @@ export default () => {
         </S.NumberCard>
       </S.NumberContainer>
 
-      <Footer />
+      <Footer renderGoBackButton={false} />
     </S.Container>
   )
 }

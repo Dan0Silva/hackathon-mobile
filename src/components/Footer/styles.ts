@@ -3,7 +3,8 @@ import { FontAwesome5 } from '@expo/vector-icons'
 
 export const Container = styled.View`
   width: 100%;
-  height: 60px;
+  height: 62px;
+  padding-top: 8px;
   position: absolute;
   bottom: 0;
   flex-direction: row;

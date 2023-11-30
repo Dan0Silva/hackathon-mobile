@@ -8,7 +8,7 @@ import Footer from '../../components/Footer'
 import QRCode from 'react-qr-code'
 
 export default () => {
-  const { staff } = useContext(AuthContext)
+  const {} = useContext(AuthContext)
 
   return (
     <S.Container>
@@ -26,11 +26,7 @@ export default () => {
             </S.OptionsTitleContainer>
 
             <S.IntContainer>
-              <S.Name>
-                {staff.nome_completo
-                  ? staff.nome_completo.toUpperCase()
-                  : 'USER NAME'}
-              </S.Name>
+              <S.Name>username</S.Name>
               <S.CodeUser>CPF OU SARAM</S.CodeUser>
 
               <S.OptionsContainer>
@@ -49,16 +45,12 @@ export default () => {
                   <S.OptionName>POSTO</S.OptionName>
                 </S.Option>
               </S.OptionsContainer>
-
-              <S.ContainerQRCode>
-                <QRCode value={staff.qrcode_efetivo.toString()} size={200} />
-              </S.ContainerQRCode>
             </S.IntContainer>
           </S.CardContainer>
         </S.ContainerMenu>
       </S.ContainerScrollView>
 
-      <Footer renderGoBackButton={false} />
+      <Footer />
     </S.Container>
   )
 }

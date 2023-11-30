@@ -15,9 +15,22 @@ export const Title = styled.Text`
 `
 
 export const ContainerScan = styled.View`
-  width: ${width - 30}px;
-  height: ${width - 30}px;
+  width: 300px;
+  height: 300px;
+  align-items: center;
+  justify-content: center;
   margin-top: 100px;
+  border-radius: 22px;
   background-color: #d0d0d0;
   overflow: hidden;
+`
+
+export const indicatorContainer = styled.View`
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(22, 22, 22, 0.5);
 `

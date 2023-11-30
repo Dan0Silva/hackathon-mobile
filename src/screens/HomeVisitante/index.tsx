@@ -58,11 +58,7 @@ export default () => {
               </S.OptionsContainer>
 
               <S.ContainerQRCode>
-                <QRCode
-                  // value={visiter.qrcode_visitante.toString()}
-                  value={'novo texto'}
-                  size={200}
-                />
+                <QRCode value={'novo texto'} size={200} />
               </S.ContainerQRCode>
 
               <S.Data>
@@ -75,7 +71,7 @@ export default () => {
         </S.ContainerMenu>
       </S.ContainerScrollView>
 
-      <Footer />
+      <Footer renderGoBackButton={false} />
     </S.Container>
   )
 }
